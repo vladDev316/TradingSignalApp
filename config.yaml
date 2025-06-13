@@ -1,0 +1,125 @@
+# Trading Parameters
+trading:
+  timeframe: "1d"
+  lookback_days: 365
+  confidence_threshold: 0.7
+  risk_reward_ratio: 2.0
+  max_position_size: 0.1  # 10% of portfolio
+  stop_loss_atr_multiplier: 2.0
+  take_profit_atr_multiplier: 3.0
+
+# Technical Indicators
+indicators:
+  rsi:
+    period: 14
+    overbought: 70
+    oversold: 30
+  macd:
+    fast_period: 12
+    slow_period: 26
+    signal_period: 9
+  ema:
+    periods: [20, 50, 200]
+  bollinger_bands:
+    period: 20
+    std_dev: 2
+  atr:
+    period: 14
+
+# Assets Configuration
+assets:
+  crypto:
+    - name: "Bitcoin"
+      symbol: "BTCUSDT"
+      min_volume: 1000000
+      volatility_threshold: 0.02
+    - name: "Ethereum"
+      symbol: "ETHUSDT"
+      min_volume: 500000
+      volatility_threshold: 0.025
+    - name: "Binance Coin"
+      symbol: "BNBUSDT"
+      min_volume: 200000
+      volatility_threshold: 0.03
+  
+  forex:
+    - name: "EUR/USD"
+      symbol: "EURUSD"
+      min_volume: 100000
+      volatility_threshold: 0.005
+    - name: "GBP/USD"
+      symbol: "GBPUSD"
+      min_volume: 100000
+      volatility_threshold: 0.005
+    - name: "USD/JPY"
+      symbol: "USDJPY"
+      min_volume: 100000
+      volatility_threshold: 0.005
+    - name: "GOLD"
+      symbol: "XAUUSD"
+      min_volume: 50000
+      volatility_threshold: 0.01
+  
+  stocks:
+    - name: "S&P 500"
+      symbol: "SPX"
+      min_volume: 1000000
+      volatility_threshold: 0.01
+    - name: "NVIDIA"
+      symbol: "NVDA"
+      min_volume: 500000
+      volatility_threshold: 0.015
+    - name: "Tesla"
+      symbol: "TSLA"
+      min_volume: 500000
+      volatility_threshold: 0.02
+    - name: "Apple Inc"
+      symbol: "AAPL"
+      min_volume: 500000
+      volatility_threshold: 0.015
+    - name: "Microsoft"
+      symbol: "MSFT"
+      min_volume: 500000
+      volatility_threshold: 0.015
+    - name: "Amazon"
+      symbol: "AMZN"
+      min_volume: 500000
+      volatility_threshold: 0.015
+
+# Signal Recording
+signal_recording:
+  csv_path: "signals_history.csv"
+  columns:
+    - timestamp
+    - symbol
+    - signal_type
+    - confidence
+    - stop_loss
+    - take_profit
+    - entry_price
+    - analysis
+    - status
+    - exit_price
+    - exit_timestamp
+    - pnl
+    - pnl_percentage
+
+# API Configuration
+api:
+  alpha_vantage:
+    base_url: "https://www.alphavantage.co/query"
+    rate_limit: 5  # requests per minute
+  binance:
+    base_url: "https://api.binance.com"
+    rate_limit: 1200  # requests per minute
+  openai:
+    model: "gpt-4"
+    temperature: 0.7
+    max_tokens: 150
+
+# AI Configuration
+ai:
+  model: "gpt-4"
+  max_tokens: 150
+  temperature: 0.7
+  system_prompt: "You are a professional market analyst. Analyze the given market data and provide a detailed trading signal analysis with confidence score and risk management recommendations." 
